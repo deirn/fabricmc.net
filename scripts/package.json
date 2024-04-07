@@ -6,12 +6,15 @@
     "dev": "vite build --watch -m development",
     "build": "npm run check && vite build",
     "buildLib": "BUILD_LIB=true vite build",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
+    "@storipress/unplugin-eta": "^0.1.4",
     "@sveltejs/vite-plugin-svelte": "2.4.1",
     "@tsconfig/svelte": "^4.0.1",
     "@types/file-saver": "^2.0.5",
+    "patch-package": "^8.0.0",
     "sass": "^1.63.4",
     "svelte": "^3.59.1",
     "svelte-check": "^3.4.3",
@@ -20,7 +23,7 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "eta": "^3.0.3",
+    "eta": "^2.2.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "vite-plugin-dts": "^2.3.0"

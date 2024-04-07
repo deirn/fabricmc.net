@@ -1,16 +1,20 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import dts from 'vite-plugin-dts'
+import eta from '@storipress/unplugin-eta/vite'
 
 const buildLib = process.env.BUILD_LIB;
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => buildLib ? ({
   // Library for CLI
-  plugins: [dts({ rollupTypes: true })],
+  plugins: [
+    eta(),
+    dts({ rollupTypes: true })
+  ],
   build: {
     sourcemap: false,
-    minify: false,
+    minify: true,
     outDir: "./dist",
     emptyOutDir: true,
     lib: {
@@ -22,7 +26,10 @@ export default defineConfig(({ mode }) => buildLib ? ({
   }
 }) : ({
   // Web build
-  plugins: [svelte()],
+  plugins: [
+    eta(),
+    svelte()
+  ],
   build: {
     sourcemap: mode === "development",
     // Build directly into the Jekyll output directory

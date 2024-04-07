@@ -1,0 +1,12 @@
+diff --git a/node_modules/@storipress/unplugin-eta/dist/index.mjs b/node_modules/@storipress/unplugin-eta/dist/index.mjs
+index 0852480..62c8066 100644
+--- a/node_modules/@storipress/unplugin-eta/dist/index.mjs
++++ b/node_modules/@storipress/unplugin-eta/dist/index.mjs
+@@ -1,6 +1,6 @@
+ import { createUnplugin } from 'unplugin';
+ import { createFilter } from '@rollup/pluginutils';
+-import Eta from 'eta';
++import * as Eta from 'eta';
+ 
+ function compile(code, options) {
+   const template = Eta.compileToString(code, {
